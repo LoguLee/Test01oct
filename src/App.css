@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: #20283a;
+  background: #f5f7fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+
+.app-shell {
+  width: min(1600px, 100%);
+  margin: auto;
+  padding: 32px;
+}
+
+.topbar, .section-heading, .form-heading, .form-actions, .progress-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.topbar { margin-bottom: 28px; }
+.eyebrow {
+  margin: 0 0 8px;
+  color: #6555d9;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+h1 { margin: 0; font-size: clamp(26px, 3vw, 36px); letter-spacing: -1px; }
+.subtitle, .section-heading p { color: #788196; margin: 8px 0 0; font-size: 14px; }
+
+.primary-btn, .secondary-btn, .alert-action {
+  border: 0;
+  border-radius: 9px;
+  padding: 12px 18px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.primary-btn { color: white; background: #6555d9; }
+.primary-btn:hover { background: #5142c0; }
+.secondary-btn { background: #eeecff; color: #5546c7; }
+
+.alert-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  margin-bottom: 20px;
+  border: 1px solid #f2c4bf;
+  border-radius: 12px;
+  background: #fff4f2;
+  color: #8c3028;
+}
+.alert-banner p { margin: 5px 0 0; font-size: 13px; }
+.alert-action { background: #f9dfdb; color: #8c3028; }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.stat-card {
+  min-width: 0;
+  background: white;
+  border: 1px solid #e9ecf3;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 3px 12px #20283a05;
+}
+.stat-card span { display: block; color: #788196; font-size: 13px; margin-bottom: 12px; }
+.stat-card strong { display: block; font-size: clamp(20px, 2vw, 27px); overflow-wrap: anywhere; }
+.stat-card small { display: block; color: #9299a9; margin-top: 8px; font-size: 11px; }
+.stat-alert { border-color: #f2c4bf; background: #fff8f7; }
+
+.project-section {
+  background: white;
+  border: 1px solid #e9ecf3;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 16px #20283a06;
+}
+.section-heading { margin-bottom: 22px; }
+.section-heading h2, .form-heading h2 { margin: 0; font-size: 21px; }
+.toolbar { display: flex; gap: 12px; margin-bottom: 20px; }
+.toolbar input { flex: 1; min-width: 0; }
+.toolbar input, .toolbar select, .field input, .field select, .field textarea {
+  width: 100%;
+  border: 1px solid #dfe3ec;
+  background: white;
+  border-radius: 8px;
+  padding: 11px 12px;
+  color: #20283a;
+  outline: none;
+}
+input:focus, select:focus, textarea:focus { border-color: #8173ed; box-shadow: 0 0 0 3px #6555d91c; }
+
+.project-form {
+  background: #fafaff;
+  border: 1px solid #e6e2ff;
+  border-radius: 12px;
+  padding: 22px;
+  margin-bottom: 24px;
+}
+.form-heading { margin-bottom: 20px; }
+.close-btn { border: 0; background: transparent; font-size: 20px; color: #788196; }
+.form-section-title { margin: 25px 0 14px; font-size: 15px; color: #393f54; }
+.form-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.field { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.field span { font-size: 13px; font-weight: 650; color: #454d60; }
+.field textarea { resize: vertical; }
+.full-width { grid-column: 1 / -1; }
+.form-actions { justify-content: flex-end; margin-top: 24px; }
+.helper-text { margin: -5px 0 14px; color: #788196; font-size: 13px; }
+
+.milestone-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.milestone-card { border: 1px solid #e3e6f0; background: white; border-radius: 10px; padding: 16px; min-width: 0; }
+.milestone-card h4 { margin: 0 0 14px; }
+.milestone-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.chapter-preview { margin-top: 15px; max-width: 500px; }
+.progress-label { font-size: 13px; color: #667085; margin-bottom: 8px; }
+.progress-track, .mini-progress { overflow: hidden; height: 8px; border-radius: 99px; background: #eceef5; }
+.progress-fill, .mini-progress div { height: 100%; background: #6555d9; border-radius: inherit; }
+.mini-progress { height: 5px; width: 85px; margin: 7px 0 3px; }
+.mini-progress div { background: #6555d9; }
+.table-wrap { overflow-x: auto; border: 1px solid #eaedf3; border-radius: 10px; }
+table { width: 100%; min-width: 1120px; border-collapse: collapse; text-align: left; font-size: 13px; }
+thead { background: #f7f8fc; }
+th, td { padding: 15px 13px; border-bottom: 1px solid #edf0f5; vertical-align: top; }
+th { color: #737d92; font-size: 11px; letter-spacing: .5px; text-transform: uppercase; }
+tbody tr:hover { background: #fafaff; }
+tbody tr:last-child td { border-bottom: 0; }
+.project-name { font-weight: 700; color: #343b51; }
+.status { display: inline-block; border-radius: 20px; padding: 5px 10px; font-size: 11px; font-weight: 800; }
+.status-yts { background: #fff3d9; color: #946000; }
+.status-wip { background: #e8efff; color: #315dc4; }
+.status-completed { background: #e1f7eb; color: #167747; }
+.overdue-tag { display: block; width: max-content; margin-top: 7px; padding: 4px 7px; border-radius: 6px; background: #fff0ed; color: #a6382d; font-size: 10px; font-weight: 700; }
+.muted { color: #9299a9; font-size: 11px; }
+.actions { display: flex; gap: 10px; }
+.actions button { border: 0; background: transparent; color: #5546c7; font-weight: 700; }
+.actions .delete-btn { color: #c34151; }
+.empty-state { text-align: center; color: #788196; padding: 36px; }
+footer { padding: 24px 0 8px; text-align: center; color: #9299a9; font-size: 12px; }
+
+@media (max-width: 1100px) {
+  .stats-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .app-shell { padding: 18px; }
+  .topbar { align-items: flex-start; flex-direction: column; }
+  .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .milestone-list { grid-template-columns: 1fr; }
+  .project-section { padding: 16px; }
+}
+@media (max-width: 480px) {
+  .stats-grid, .form-grid, .milestone-grid { grid-template-columns: 1fr; }
+  .toolbar, .alert-banner { align-items: stretch; flex-direction: column; }
+  .full-width { grid-column: auto; }
+  .stat-card { padding: 16px; }
+}
