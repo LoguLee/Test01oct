@@ -4,7 +4,7 @@ import "./App.css";
 const STORAGE_KEY = "test01oct-project-records-v2";
 
 const emptyProject = {
-  projectName: "",
+  projectTitle: "",
   ipmNumber: "",
   productId: "",
   status: "YTS",
@@ -117,7 +117,7 @@ function App() {
   const filteredProjects = projects.filter((project) => {
     const query = search.trim().toLowerCase();
     const matchesSearch = [
-      project.projectName,
+      project.projectTitle,
       project.ipmNumber,
       project.productId,
     ].some((value) => String(value || "").toLowerCase().includes(query));
@@ -162,8 +162,8 @@ function App() {
 
   function saveProject(event) {
     event.preventDefault();
-    if (!form.projectName.trim()) {
-      window.alert("Please enter a project name.");
+    if (!form.projectTitle.trim()) {
+      window.alert("Please enter a projectTitle.");
       return;
     }
 
@@ -183,7 +183,7 @@ function App() {
     const record = {
       ...form,
       id: editingId || crypto.randomUUID(),
-      projectName: form.projectName.trim(),
+      projectTitle: form.projectTitle.trim(),
       milestones: form.milestones.map((milestone, index) => ({
         ...milestone,
         number: index + 1,
@@ -208,7 +208,7 @@ function App() {
 
   function exportCSV() {
     const columns = [
-      ["projectName", "Project Name"],
+      ["projectTitle", "projectTitle"],
       ["ipmNumber", "IPM Number"],
       ["productId", "Product ID"],
       ["status", "Status"],
@@ -329,7 +329,7 @@ function App() {
 
             <h3 className="form-section-title">Project details</h3>
             <div className="form-grid">
-              <Field label="Project Name" name="projectName" value={form.projectName} onChange={updateField} required />
+              <Field label="ProjectTitle" name="projectTitle" value={form.projectTitle} onChange={updateField} required />
               <Field label="IPM Number" name="ipmNumber" value={form.ipmNumber} onChange={updateField} />
               <Field label="Product Number / ID" name="productId" value={form.productId} onChange={updateField} />
               <label className="field">
@@ -443,7 +443,7 @@ function App() {
                 return (
                   <tr key={project.id}>
                     <td className="project-name">
-                      {project.projectName}
+                      {project.projectTitle}
                       {overdue && <span className="overdue-tag">Permission overdue</span>}
                     </td>
                     <td>{project.ipmNumber || "—"}<br /><span className="muted">{project.productId || "—"}</span></td>
